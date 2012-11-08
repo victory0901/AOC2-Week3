@@ -18,6 +18,8 @@
 		1A98828E164B22FB0086AD18 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A98828D164B22FB0086AD18 /* Default-568h@2x.png */; };
 		1A988291164B22FB0086AD18 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A988290164B22FB0086AD18 /* ViewController.m */; };
 		1A988294164B22FB0086AD18 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A988292164B22FB0086AD18 /* ViewController.xib */; };
+		1A98829B164B9BD10086AD18 /* SecondView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A98829A164B9BD10086AD18 /* SecondView.xib */; };
+		1A98829E164B9FE30086AD18 /* SecondView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A98829D164B9FE30086AD18 /* SecondView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,9 @@
 		1A98828F164B22FB0086AD18 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		1A988290164B22FB0086AD18 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1A988293164B22FB0086AD18 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		1A98829A164B9BD10086AD18 /* SecondView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondView.xib; sourceTree = "<group>"; };
+		1A98829C164B9FE30086AD18 /* SecondView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondView.h; sourceTree = "<group>"; };
+		1A98829D164B9FE30086AD18 /* SecondView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +94,9 @@
 				1A988290164B22FB0086AD18 /* ViewController.m */,
 				1A988292164B22FB0086AD18 /* ViewController.xib */,
 				1A98827E164B22FB0086AD18 /* Supporting Files */,
+				1A98829A164B9BD10086AD18 /* SecondView.xib */,
+				1A98829C164B9FE30086AD18 /* SecondView.h */,
+				1A98829D164B9FE30086AD18 /* SecondView.m */,
 			);
 			path = EventPlanner;
 			sourceTree = "<group>";
@@ -163,6 +171,7 @@
 				1A98828C164B22FB0086AD18 /* Default@2x.png in Resources */,
 				1A98828E164B22FB0086AD18 /* Default-568h@2x.png in Resources */,
 				1A988294164B22FB0086AD18 /* ViewController.xib in Resources */,
+				1A98829B164B9BD10086AD18 /* SecondView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +185,7 @@
 				1A988284164B22FB0086AD18 /* main.m in Sources */,
 				1A988288164B22FB0086AD18 /* AppDelegate.m in Sources */,
 				1A988291164B22FB0086AD18 /* ViewController.m in Sources */,
+				1A98829E164B9FE30086AD18 /* SecondView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
