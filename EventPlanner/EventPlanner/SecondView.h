@@ -10,7 +10,7 @@
 
 @interface SecondView : UIViewController
 {
-    
+    IBOutlet UITextField *textField;
 }
 
 -(IBAction)OnClose:(id)sender;

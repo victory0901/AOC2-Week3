@@ -25,13 +25,14 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
 
 -(IBAction)OnClose:(id)sender
 {
-    
+    [textField resignFirstResponder];
 }
 
 -(IBAction)OnSave:(id)sender
