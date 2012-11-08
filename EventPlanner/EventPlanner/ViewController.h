@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ViewController : UIViewController
+#import "SecondView.h"
+@interface ViewController : UIViewController <AddEventDelegate>
 {
     IBOutlet UITextView *textview;
 }

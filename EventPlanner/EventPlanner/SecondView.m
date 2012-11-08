@@ -14,6 +14,8 @@
 
 @implementation SecondView
 
+@synthesize delegate;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -39,10 +41,19 @@
 {
     UIButton *button = (UIButton*)sender;
     if (button != nil)
-    {
+    {        
+        
         [textField resignFirstResponder];
         NSString *tempString = textField.text;
-        NSLog(@"%@", tempString);
+        NSString *eventInfo = [NSString stringWithFormat:@"New Event: %@ \n %@ \n \n", tempString, dateString];
+        
+        NSLog(@"%@", eventInfo);
+        
+        [self dismissViewControllerAnimated:TRUE completion:nil];
+        if (delegate != nil)
+        {
+            [delegate AddEvent:eventInfo];
+        }
     }
 }
 
@@ -55,8 +66,8 @@
         NSDate *date = picker.date;
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         [dateFormat setDateFormat:@"MMM d, yyyy hh:mm aaa"];
-        NSString *dateString = [dateFormat stringFromDate:date];
-        NSLog(@"date = %@", dateString);
+        dateString = [dateFormat stringFromDate:date];
+        
     }
 }
 
