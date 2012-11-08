@@ -51,9 +51,12 @@
     UIDatePicker *picker = (UIDatePicker*)sender;
     if (picker != nil)
     {
+        datePicker.minimumDate = [NSDate date];
         NSDate *date = picker.date;
-        
-        NSLog(@"date = %@", [date description]);
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"MMM d, yyyy hh:mm aaa"];
+        NSString *dateString = [dateFormat stringFromDate:date];
+        NSLog(@"date = %@", dateString);
     }
 }
 
