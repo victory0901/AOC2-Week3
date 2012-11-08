@@ -27,8 +27,14 @@
     SecondView *viewController = [[SecondView alloc] initWithNibName:@"SecondView" bundle:nil];
     if (viewController != nil)
     {
+        viewController.delegate = self;
         [self presentViewController:viewController animated:TRUE completion:nil];
     }
+}
+
+-(void)AddEvent:(NSString*)eventInfo
+{
+    textview.text = [textview.text stringByAppendingString:eventInfo];
 }
 
 - (void)didReceiveMemoryWarning

@@ -10,7 +10,7 @@
 
 @protocol AddEventDelegate <NSObject>
 
-@optional
+@required
 -(void)AddEvent:(NSString*)eventInfo;
 
 @end
@@ -22,7 +22,8 @@
     IBOutlet UIButton *saveButton;
     IBOutlet UIButton *closeKeyboard;
     IBOutlet UIDatePicker *datePicker;
-    
+    id<AddEventDelegate> delegate;
+
     NSString *dateString;
 }
 
@@ -30,6 +31,6 @@
 -(IBAction)OnSave:(id)sender;
 -(IBAction)OnChange:(id)sender;
 
-@property(nonatomic,assign)id delegate;
+@property(strong)id<AddEventDelegate> delegate;
 
 @end

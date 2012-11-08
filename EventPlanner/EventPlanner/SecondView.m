@@ -16,11 +16,13 @@
 
 @synthesize delegate;
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    if (self)
+    {
+        
     }
     return self;
 }
@@ -45,7 +47,7 @@
         
         [textField resignFirstResponder];
         NSString *tempString = textField.text;
-        NSString *eventInfo = [NSString stringWithFormat:@"New Event: %@ \n %@ \n \n", tempString, dateString];
+        NSString *eventInfo = [NSString stringWithFormat:@"New Event: %@ \n%@\n \n", tempString, dateString];
         
         NSLog(@"%@", eventInfo);
         
@@ -54,6 +56,7 @@
         {
             [delegate AddEvent:eventInfo];
         }
+    
     }
 }
 
