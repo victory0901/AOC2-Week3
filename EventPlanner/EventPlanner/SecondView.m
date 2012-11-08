@@ -37,7 +37,24 @@
 
 -(IBAction)OnSave:(id)sender
 {
-    
+    UIButton *button = (UIButton*)sender;
+    if (button != nil)
+    {
+        [textField resignFirstResponder];
+        NSString *tempString = textField.text;
+        NSLog(@"%@", tempString);
+    }
+}
+
+-(IBAction)OnChange:(id)sender
+{
+    UIDatePicker *picker = (UIDatePicker*)sender;
+    if (picker != nil)
+    {
+        NSDate *date = picker.date;
+        
+        NSLog(@"date = %@", [date description]);
+    }
 }
 
 - (void)didReceiveMemoryWarning

@@ -11,8 +11,12 @@
 @interface SecondView : UIViewController
 {
     IBOutlet UITextField *textField;
+    IBOutlet UIButton *saveButton;
+    IBOutlet UIButton *closeKeyboard;
+    IBOutlet UIDatePicker *datePicker;
 }
 
 -(IBAction)OnClose:(id)sender;
 -(IBAction)OnSave:(id)sender;
+-(IBAction)OnChange:(id)sender;
 @end
