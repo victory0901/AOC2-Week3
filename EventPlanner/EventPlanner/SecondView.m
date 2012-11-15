@@ -7,7 +7,6 @@
 //
 
 #import "SecondView.h"
-
 @interface SecondView ()
 
 @end
@@ -29,9 +28,67 @@
 
 - (void)viewDidLoad
 {
+    leftSwiper = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipe:)];
+    leftSwiper.direction = UISwipeGestureRecognizerDirectionLeft;
+    [swipeLeft addGestureRecognizer:leftSwiper];
+    
     datePicker.minimumDate = [NSDate date];
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+}
+
+-(void)onSwipe:(UISwipeGestureRecognizer*)recognizer
+{
+    if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft)
+    {            
+            if (textField.text.length == 0 )
+            {
+                UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Event Title Missing"
+                                                                  message:@"Please enter an Event Tite!"
+                                                                 delegate:nil
+                                                        cancelButtonTitle:@"OK"
+                                                        otherButtonTitles:nil];
+                [message show];
+            }
+            else
+            {
+                
+                if (dateString != nil)
+                {
+                    [textField resignFirstResponder];
+                    textField.text = @"";
+                    NSString *tempString = textField.text;
+                    NSString *eventInfo = [NSString stringWithFormat:@"New Event: %@ \n%@\n \n", tempString, dateString];
+                    
+                    NSLog(@"%@", eventInfo);
+                    
+                    [self dismissViewControllerAnimated:TRUE completion:nil];
+                    if (delegate != nil)
+                    {
+                        [delegate AddEvent:eventInfo];
+                    }
+                }
+                else
+                {
+                    NSDate *date = [NSDate date];
+                    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+                    [dateFormat setDateFormat:@"MMM d, yyyy hh:mm aaa"];
+                    dateString = [dateFormat stringFromDate:date];
+                    
+                    
+                    [textField resignFirstResponder];
+                    NSString *tempString = textField.text;
+                    NSString *eventInfo = [NSString stringWithFormat:@"New Event: %@ \n%@\n \n", tempString, dateString];
+                    
+                    NSLog(@"%@", eventInfo);
+                    [self dismissViewControllerAnimated:TRUE completion:nil];
+                    if (delegate != nil)
+                    {
+                        [delegate AddEvent:eventInfo];
+                    }
+                }
+        }
+    }
 }
 
 -(IBAction)OnClose:(id)sender
@@ -41,10 +98,10 @@
 
 -(IBAction)OnSave:(id)sender
 {
-    UIButton *button = (UIButton*)sender;
-    if (button != nil)
+    UILabel *label = (UILabel*)sender;
+    if (label != nil)
     {
-            
+         
         if (textField.text.length == 0 )
         {
             UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Event Title Missing"
@@ -60,6 +117,7 @@
             if (dateString != nil)
             {
                 [textField resignFirstResponder];
+                textField.text = @"";
                 NSString *tempString = textField.text;
                 NSString *eventInfo = [NSString stringWithFormat:@"New Event: %@ \n%@\n \n", tempString, dateString];
                 
@@ -77,6 +135,8 @@
                 NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
                 [dateFormat setDateFormat:@"MMM d, yyyy hh:mm aaa"];
                 dateString = [dateFormat stringFromDate:date];
+                
+                
                 [textField resignFirstResponder];
                 NSString *tempString = textField.text;
                 NSString *eventInfo = [NSString stringWithFormat:@"New Event: %@ \n%@\n \n", tempString, dateString];

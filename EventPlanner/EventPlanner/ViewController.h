@@ -11,7 +11,11 @@
 @interface ViewController : UIViewController <AddEventDelegate>
 {
     IBOutlet UITextView *textview;
+    IBOutlet UILabel *swipeRight;
+    
+    UISwipeGestureRecognizer *rightSwiper;
 }
 
--(IBAction)OnClick:(id)sender;
+-(void)onSwipe:(UISwipeGestureRecognizer*)recognizer;
+
 @end

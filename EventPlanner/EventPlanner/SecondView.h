@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @protocol AddEventDelegate <NSObject>
 
 @required
@@ -19,14 +18,18 @@
 @interface SecondView : UIViewController
 {
     IBOutlet UITextField *textField;
-    IBOutlet UIButton *saveButton;
+    IBOutlet UILabel *swipeLeft;
     IBOutlet UIButton *closeKeyboard;
     IBOutlet UIDatePicker *datePicker;
     id<AddEventDelegate> delegate;
 
     NSString *dateString;
     NSString *defaultText;
+    
+    UISwipeGestureRecognizer *leftSwiper;
 }
+
+-(void)onSwipe:(UISwipeGestureRecognizer*)recognizer;
 
 -(IBAction)OnClose:(id)sender;
 -(IBAction)OnSave:(id)sender;
