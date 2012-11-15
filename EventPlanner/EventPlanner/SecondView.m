@@ -29,6 +29,7 @@
 
 - (void)viewDidLoad
 {
+    datePicker.minimumDate = [NSDate date];
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
@@ -97,7 +98,7 @@
     if (picker != nil)
     {
         
-        datePicker.minimumDate = [NSDate date];
+        
         NSDate *date = picker.date;
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         [dateFormat setDateFormat:@"MMM d, yyyy hh:mm aaa"];
