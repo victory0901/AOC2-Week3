@@ -44,19 +44,38 @@
     UIButton *button = (UIButton*)sender;
     if (button != nil)
     {        
-        
-        [textField resignFirstResponder];
-        NSString *tempString = textField.text;
-        NSString *eventInfo = [NSString stringWithFormat:@"New Event: %@ \n%@\n \n", tempString, dateString];
-        
-        NSLog(@"%@", eventInfo);
-        
-        [self dismissViewControllerAnimated:TRUE completion:nil];
-        if (delegate != nil)
+        if (dateString != nil)
         {
+            [textField resignFirstResponder];
+            NSString *tempString = textField.text;
+            NSString *eventInfo = [NSString stringWithFormat:@"New Event: %@ \n%@\n \n", tempString, dateString];
+        
+            NSLog(@"%@", eventInfo);
+        
+            [self dismissViewControllerAnimated:TRUE completion:nil];
+            if (delegate != nil)
+            {
             [delegate AddEvent:eventInfo];
+            }
         }
-    
+        else
+        {
+            NSDate *date = [NSDate date];
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            [dateFormat setDateFormat:@"MMM d, yyyy hh:mm aaa"];
+            dateString = [dateFormat stringFromDate:date];
+            [textField resignFirstResponder];
+            NSString *tempString = textField.text;
+            NSString *eventInfo = [NSString stringWithFormat:@"New Event: %@ \n%@\n \n", tempString, dateString];
+            
+            NSLog(@"%@", eventInfo);
+            
+            [self dismissViewControllerAnimated:TRUE completion:nil];
+            if (delegate != nil)
+            {
+                [delegate AddEvent:eventInfo];
+            }
+        }
     }
 }
 
@@ -65,6 +84,7 @@
     UIDatePicker *picker = (UIDatePicker*)sender;
     if (picker != nil)
     {
+        
         datePicker.minimumDate = [NSDate date];
         NSDate *date = picker.date;
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
