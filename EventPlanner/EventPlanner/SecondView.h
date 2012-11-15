@@ -32,7 +32,6 @@
 -(void)onSwipe:(UISwipeGestureRecognizer*)recognizer;
 
 -(IBAction)OnClose:(id)sender;
--(IBAction)OnSave:(id)sender;
 -(IBAction)OnChange:(id)sender;
 
 @property(strong)id<AddEventDelegate> delegate;

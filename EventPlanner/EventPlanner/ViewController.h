@@ -12,10 +12,13 @@
 {
     IBOutlet UITextView *textview;
     IBOutlet UILabel *swipeRight;
+    IBOutlet UIButton *save;
     
     UISwipeGestureRecognizer *rightSwiper;
 }
 
 -(void)onSwipe:(UISwipeGestureRecognizer*)recognizer;
+
+-(IBAction)onClick:(id)sender;
 
 @end

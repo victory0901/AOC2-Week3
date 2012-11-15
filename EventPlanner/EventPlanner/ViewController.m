@@ -15,8 +15,31 @@
 
 @implementation ViewController
 
+-(IBAction)onClick:(id)sender
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (defaults != nil)
+    {
+        NSString *textString = textview.text;
+        
+        [defaults setObject:textString forKey:@"text"];
+        
+        //saves the data
+        [defaults synchronize];
+    }
+}
+
 - (void)viewDidLoad
 {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (defaults != nil)
+    {
+        NSString *textString = [defaults objectForKey:@"text"];
+        
+        textview.text = textString;
+    }
+    
+    
     rightSwiper = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipe:)];
     rightSwiper.direction = UISwipeGestureRecognizerDirectionRight;
     [swipeRight addGestureRecognizer:rightSwiper];
