@@ -25,6 +25,7 @@
     id<AddEventDelegate> delegate;
 
     NSString *dateString;
+    NSString *defaultText;
 }
 
 -(IBAction)OnClose:(id)sender;

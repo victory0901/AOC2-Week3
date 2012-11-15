@@ -29,7 +29,6 @@
 
 - (void)viewDidLoad
 {
-    
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
@@ -43,37 +42,50 @@
 {
     UIButton *button = (UIButton*)sender;
     if (button != nil)
-    {        
-        if (dateString != nil)
+    {
+            
+        if (textField.text.length == 0 )
         {
-            [textField resignFirstResponder];
-            NSString *tempString = textField.text;
-            NSString *eventInfo = [NSString stringWithFormat:@"New Event: %@ \n%@\n \n", tempString, dateString];
-        
-            NSLog(@"%@", eventInfo);
-        
-            [self dismissViewControllerAnimated:TRUE completion:nil];
-            if (delegate != nil)
-            {
-            [delegate AddEvent:eventInfo];
-            }
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Event Title Missing"
+                                                              message:@"Please enter an Event Tite!"
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles:nil];
+            [message show];
         }
         else
         {
-            NSDate *date = [NSDate date];
-            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-            [dateFormat setDateFormat:@"MMM d, yyyy hh:mm aaa"];
-            dateString = [dateFormat stringFromDate:date];
-            [textField resignFirstResponder];
-            NSString *tempString = textField.text;
-            NSString *eventInfo = [NSString stringWithFormat:@"New Event: %@ \n%@\n \n", tempString, dateString];
-            
-            NSLog(@"%@", eventInfo);
-            
-            [self dismissViewControllerAnimated:TRUE completion:nil];
-            if (delegate != nil)
+
+            if (dateString != nil)
             {
-                [delegate AddEvent:eventInfo];
+                [textField resignFirstResponder];
+                NSString *tempString = textField.text;
+                NSString *eventInfo = [NSString stringWithFormat:@"New Event: %@ \n%@\n \n", tempString, dateString];
+                
+                NSLog(@"%@", eventInfo);
+                
+                [self dismissViewControllerAnimated:TRUE completion:nil];
+                if (delegate != nil)
+                {
+                    [delegate AddEvent:eventInfo];
+                }
+            }
+            else
+            {
+                NSDate *date = [NSDate date];
+                NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+                [dateFormat setDateFormat:@"MMM d, yyyy hh:mm aaa"];
+                dateString = [dateFormat stringFromDate:date];
+                [textField resignFirstResponder];
+                NSString *tempString = textField.text;
+                NSString *eventInfo = [NSString stringWithFormat:@"New Event: %@ \n%@\n \n", tempString, dateString];
+                
+                NSLog(@"%@", eventInfo);
+                [self dismissViewControllerAnimated:TRUE completion:nil];
+                if (delegate != nil)
+                {
+                    [delegate AddEvent:eventInfo];
+                }
             }
         }
     }
